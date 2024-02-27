@@ -1,10 +1,10 @@
 module github.com/aaronland/go-aws-dynamodb
 
-go 1.18
+go 1.21
 
 require (
 	github.com/aaronland/go-aws-session v0.2.1
-	github.com/aws/aws-sdk-go v1.45.19
+	github.com/aws/aws-sdk-go v1.50.27
 )
 
 require (
