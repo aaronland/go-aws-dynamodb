@@ -7,7 +7,7 @@ import (
 	"log"
 
 	aa_dynamodb "github.com/aaronland/go-aws-dynamodb"
-	aws_dynamodb "github.com/aws/aws-sdk-go/service/dynamodb"
+	aws_dynamodb "github.com/aws/aws-sdk-go-v2/service/dynamodb"
 )
 
 func main() {
@@ -26,13 +26,13 @@ func main() {
 
 	input := &aws_dynamodb.ListTablesInput{}
 
-	rsp, err := client.ListTables(input)
+	rsp, err := client.ListTables(ctx, input)
 
 	if err != nil {
 		log.Fatalf("Failed to list tables, %w", err)
 	}
 
 	for _, t := range rsp.TableNames {
-		fmt.Println(*t)
+		fmt.Println(t)
 	}
 }
