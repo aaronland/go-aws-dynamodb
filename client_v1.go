@@ -13,6 +13,8 @@ import (
 	aws_dynamodb "github.com/aws/aws-sdk-go/service/dynamodb"	
 )
 
+// NewClientV1 returns an aws-sdk-go (v1) compatible client which is still necessary
+// for some packages (like gocloud.dev/docstore)
 func NewClientV1(ctx context.Context, uri string) (*aws_dynamodb.DynamoDB, error) {
 
 	sess, err := newSessionWithURI(ctx, uri)
