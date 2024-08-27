@@ -1,7 +1,5 @@
 package dynamodb
 
-// Move this in to aaronland/go-aws-dynamodb
-
 import (
 	"context"
 	"fmt"
@@ -11,7 +9,11 @@ import (
 )
 
 func NewClientWithURI(ctx context.Context, uri string) (*aws_dynamodb.Client, error) {
+	return NewClient(ctx, uri)
+}
 
+func NewClient(ctx context.Context, uri string) (*aws_dynamodb.Client, error) {
+	
 	cfg, err := auth.NewConfig(ctx, uri)
 
 	if err != nil {
