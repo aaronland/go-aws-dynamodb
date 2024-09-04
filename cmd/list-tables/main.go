@@ -21,7 +21,7 @@ func main() {
 	client, err := aa_dynamodb.NewClientWithURI(ctx, *client_uri)
 
 	if err != nil {
-		log.Fatalf("Failed to create new client, %w", err)
+		log.Fatalf("Failed to create new client, %v", err)
 	}
 
 	input := &aws_dynamodb.ListTablesInput{}
@@ -29,7 +29,7 @@ func main() {
 	rsp, err := client.ListTables(ctx, input)
 
 	if err != nil {
-		log.Fatalf("Failed to list tables, %w", err)
+		log.Fatalf("Failed to list tables, %v", err)
 	}
 
 	for _, t := range rsp.TableNames {
